@@ -1,0 +1,14 @@
+[build]
+  functions = "netlify/functions"
+
+# API route → serverless download function
+[[redirects]]
+  from = "/api/download"
+  to = "/.netlify/functions/download"
+  status = 200
+
+# Real 404s for unknown pages
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

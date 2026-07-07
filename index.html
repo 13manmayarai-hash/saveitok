@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SaveItOk — Download videos from TikTok, Douyin, Instagram and Facebook in HD quality. Free, fast, no signup required.">
+<meta name="keywords" content="video downloader, tiktok downloader, douyin downloader, instagram downloader, facebook downloader, HD video download, no watermark, SaveItOk">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://saveitok.com/">
+<meta property="og:title" content="SaveItOk — Free Video Downloader">
+<meta property="og:description" content="Download videos from TikTok, Douyin, Instagram and Facebook in HD. Free, no watermark, instant.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saveitok.com">
+<meta property="og:image" content="https://saveitok.com/og-image.png">
+<meta property="og:site_name" content="SaveItOk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SaveItOk — Free Video Downloader">
+<meta name="twitter:description" content="Download videos from TikTok, Douyin, Instagram and Facebook in HD. Free, no watermark, instant.">
+<meta name="twitter:image" content="https://saveitok.com/og-image.png">
+<title>SaveItOk — Free Video Downloader | TikTok, Douyin, Instagram, Facebook</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- ============================================================ -->
+<!-- GOOGLE ADSENSE — static tag so the AdSense crawler can verify -->
+<!-- ============================================================ -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4216510563299653" crossorigin="anonymous"></script>
+<script>
+  // Ad slot IDs used by the ad units further down the page
+  const ADSENSE = {
+    PUBLISHER_ID: 'ca-pub-4216510563299653',
+    SLOTS: {
+      TOP_BANNER:  '2102325825', // SaveItOk Top Banner
+      SIDEBAR:     '6143467014', // SaveItOk Sidebar
+      MID_PAGE:    '5395573114', // SaveItOk Mid Page
+      BOT_BANNER:  '2769409773', // SaveItOk Bottom Banner
+    }
+  };
+</script>
+
+<style>
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ===== TOKENS ===== */
+:root {
+  --bg: #080C14;
+  --bg1: #0D1220;
+  --bg2: #121929;
+  --bg3: #1A2335;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --text: #EEF0F5;
+  --muted: #5A6478;
+  --muted2: #8892A4;
+  --blue: #3B82F6;
+  --blue2: #60A5FA;
+  --cyan: #22D3EE;
+  --green: #10B981;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+  --grad: linear-gradient(135deg, #3B82F6 0%, #22D3EE 100%);
+  --grad2: linear-gradient(135deg, #6366F1 0%, #3B82F6 50%, #22D3EE 100%);
+  --ff-head: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --r: 12px;
+  --r2: 20px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== BACKGROUND GLOW ===== */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(59,130,246,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== LAYOUT ===== */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== TOP AD BANNER ===== */
+.ad-top {
+  background: var(--bg1);
+  border-bottom: 0.5px solid var(--border);
+  padding: 8px 0;
+  text-align: center;
+}
+
+.ad-label {
+  font-size: 9px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  font-family: var(--ff-head);
+}
+
+.ad-placeholder {
+  background: var(--bg2);
+  border: 0.5px dashed var(--border2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 11px;
+  font-family: var(--ff-head);
+  letter-spacing: 0.5px;
+}
+
+.ad-top .ad-placeholder { height: 90px; max-width: 728px; margin: 0 auto; }
+
+/* ===== HEADER ===== */
+header {
+  padding: 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -0.5px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--ff-head);
+  font-size: 13px;
+  color: var(--muted2);
+  text-decoration: none;
+  transition: color 0.15s;
+  font-weight: 500;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 60px 0 48px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59,130,246,0.1);
+  border: 0.5px solid rgba(59,130,246,0.25);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: var(--blue2);
+  font-family: var(--ff-head);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-bottom: 24px;
+}
+
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero h1 {
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.hero h1 span {
+  background: var(--grad2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 17px;
+  color: var(--muted2);
+  max-width: 520px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ===== PLATFORM PILLS ===== */
+.platform-pills {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg2);
+  border: 0.5px solid var(--border2);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-family: var(--ff-head);
+  font-weight: 600;
+  color: var(--muted2);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.pill:hover, .pill.active {
+  border-color: var(--blue);
+  color: var(--blue2);
+  background: rgba(59,130,246,0.08);
+}
+
+.pill .icon { font-size: 14px; }
+
+/* ===== MAIN INPUT CARD ===== */
+.input-card {
+  background: var(--bg1);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r2);
+  padding: 28px;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.input-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--grad);
+  opacity: 0.5;
+}
+
+.url-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.url-input {
+  flex: 1;
+  background: var(--bg2);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  font-family: var(--ff-body);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.url-input:focus { border-color: var(--blue); }
+.url-input::placeholder { color: var(--muted); }
+
+.paste-btn {
+  background: var(--bg3);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r);
+  padding: 14px 18px;
+  font-family: var(--ff-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.paste-btn:hover { color: var(--text); border-color: var(--border2); }
+
+/* QUALITY SELECTOR */
+.quality-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.quality-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--ff-head);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.q-btn {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-family: var(--ff-head);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.q-btn:hover { border-color: var(--border2); color: var(--text); }
+
+.q-btn.active {
+  background: rgba(59,130,246,0.12);
+  border-color: var(--blue);
+  color: var(--blue2);
+}
+
+.q-btn .badge {
+  font-size: 9px;
+  background: var(--green);
+  color: #000;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: var(--r);
+  background: var(--grad);
+  font-family: var(--ff-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.download-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(59,130,246,0.35);
+}
+
+.download-btn:active { transform: scale(0.99); }
+.download-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.download-btn.loading {
+  opacity: 0.85;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* ===== MAIN CONTENT GRID ===== */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ===== RESULT CARD ===== */
+.result-card {
+  background: var(--bg1);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r2);
+  overflow: hidden;
+  display: none;
+  margin-bottom: 24px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.result-card.show { display: block; }
+
+.result-thumb {
+  position: relative;
+  background: var(--bg2);
+}
+
+.result-thumb img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.result-thumb .duration-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-family: var(--ff-head);
+  font-weight: 600;
+  color: #fff;
+}
+
+.result-body { padding: 20px; }
+
+.result-title {
+  font-family: var(--ff-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.result-meta {
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.result-meta span { display: flex; align-items: center; gap: 4px; }
+
+.download-options { display: flex; flex-direction: column; gap: 8px; }
+
+.dl-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.dl-option:hover { border-color: var(--blue); background: rgba(59,130,246,0.05); }
+
+.dl-option-left { display: flex; align-items: center; gap: 10px; }
+
+.dl-quality {
+  font-family: var(--ff-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.dl-info { font-size: 12px; color: var(--muted2); }
+
+.dl-btn {
+  background: var(--grad);
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-family: var(--ff-head);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+.ad-sidebar .ad-placeholder { height: 600px; width: 100%; }
+
+.sidebar-card {
+  background: var(--bg1);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r2);
+  padding: 20px;
+}
+
+.sidebar-title {
+  font-family: var(--ff-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.feature-list { display: flex; flex-direction: column; gap: 10px; }
+
+.feature-item { display: flex; align-items: flex-start; gap: 10px; }
+
+.feature-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(59,130,246,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.feature-text { font-size: 13px; color: var(--muted2); line-height: 1.5; }
+.feature-text strong { color: var(--text); font-weight: 600; }
+
+/* ===== HOW IT WORKS ===== */
+.how-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.section-label {
+  font-family: var(--ff-head);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--ff-head);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin-bottom: 48px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.step-card {
+  background: var(--bg1);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r2);
+  padding: 24px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.step-card:hover { border-color: var(--border2); }
+
+.step-number {
+  font-family: var(--ff-head);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.step-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.step-title {
+  font-family: var(--ff-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.step-desc { font-size: 13px; color: var(--muted2); line-height: 1.6; }
+
+/* ===== SUPPORTED PLATFORMS ===== */
+.platforms-section { padding: 40px 0 60px; }
+
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.platform-card {
+  background: var(--bg1);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r2);
+  padding: 20px 14px;
+  text-align: center;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+
+.platform-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+}
+
+.platform-logo { font-size: 32px; margin-bottom: 8px; display: block; }
+.platform-name {
+  font-family: var(--ff-head);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.platform-quality { font-size: 11px; color: var(--muted2); }
+
+/* ===== MID AD ===== */
+.ad-mid {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.ad-mid .ad-placeholder { height: 250px; max-width: 970px; margin: 0 auto; }
+
+/* ===== FAQ ===== */
+.faq-section { padding: 40px 0 60px; }
+
+.faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 720px; margin: 0 auto; }
+
+.faq-item {
+  background: var(--bg1);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.faq-q {
+  padding: 16px 20px;
+  font-family: var(--ff-head);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faq-q .arrow { transition: transform 0.2s; color: var(--muted); font-size: 12px; }
+.faq-item.open .faq-q .arrow { transform: rotate(180deg); color: var(--blue2); }
+.faq-item.open .faq-q { color: var(--blue2); }
+
+.faq-a {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, padding 0.2s;
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.7;
+}
+
+.faq-item.open .faq-a { max-height: 320px; padding: 0 20px 16px; }
+
+/* ===== BOTTOM AD ===== */
+.ad-bottom {
+  background: var(--bg1);
+  border-top: 0.5px solid var(--border);
+  padding: 12px 0;
+  text-align: center;
+}
+
+.ad-bottom .ad-placeholder { height: 90px; max-width: 728px; margin: 0 auto; }
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 0.5px solid var(--border);
+  padding: 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.2rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-links { display: flex; gap: 20px; }
+.footer-links a {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  font-family: var(--ff-head);
+}
+.footer-links a:hover { color: var(--muted2); }
+
+.footer-copy { font-size: 12px; color: var(--muted); }
+
+/* ===== ERROR / SUCCESS ===== */
+.status-msg {
+  max-width: 720px;
+  margin: 0 auto 16px;
+  border-radius: var(--r);
+  padding: 12px 16px;
+  font-size: 13px;
+  font-family: var(--ff-head);
+  display: none;
+}
+
+.status-msg.error { background: rgba(239,68,68,0.1); border: 0.5px solid rgba(239,68,68,0.3); color: #f87171; }
+.status-msg.success { background: rgba(16,185,129,0.1); border: 0.5px solid rgba(16,185,129,0.3); color: #34d399; }
+.status-msg.show { display: block; }
+
+/* ===== LOADING SPINNER ===== */
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--bg2);
+  border-top: 0.5px solid var(--border2);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 1000;
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+.cookie-banner.hidden { display: none; }
+
+.cookie-accept {
+  background: var(--blue);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-family: var(--ff-head);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cookie-reject {
+  background: transparent;
+  border: 0.5px solid var(--border2);
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-family: var(--ff-head);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.cookie-reject:hover { color: var(--text); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .platforms-grid { grid-template-columns: repeat(3, 1fr); }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+  .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+  .url-row { flex-direction: column; }
+  .paste-btn { width: 100%; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP AD BANNER -->
+<div class="ad-top">
+  <div class="page-wrap">
+    <div class="ad-label">Advertisement</div>
+    <!-- TOP BANNER AD — auto-configured from ADSENSE config above -->
+    <ins class="adsbygoogle ad-placeholder"
+         style="display:block;max-width:728px;height:90px;margin:0 auto;"
+         data-ad-client=""
+         data-ad-slot=""
+         data-ad-format="horizontal"
+         id="ad-top-banner"></ins>
+    <script>
+      if (ADSENSE.PUBLISHER_ID !== 'ca-pub-XXXXXXXXXXXXXXXX') {
+        const el = document.getElementById('ad-top-banner');
+        el.setAttribute('data-ad-client', ADSENSE.PUBLISHER_ID);
+        el.setAttribute('data-ad-slot', ADSENSE.SLOTS.TOP_BANNER);
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+      }
+    </script>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <header>
+    <a href="/" style="text-decoration:none;">
+      <svg width="200" height="48" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3B82F6"/>
+            <stop offset="100%" stop-color="#22D3EE"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="4" width="48" height="48" rx="12" fill="url(#hgrad)"/>
+        <line x1="24" y1="14" x2="24" y2="32" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <polyline points="15,26 24,35 33,26" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="15" y1="41" x2="33" y2="41" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <text x="62" y="34" font-family="'Space Grotesk', Arial Black, sans-serif" font-weight="800" font-size="28" fill="white" letter-spacing="-1">Save<tspan fill="url(#hgrad)">It</tspan>Ok</text>
+        <text x="63" y="50" font-family="Arial, sans-serif" font-weight="400" font-size="10" fill="#4A6078" letter-spacing="2">VIDEO DOWNLOADER</text>
+      </svg>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      TikTok · Douyin · Instagram · Facebook — 100% Free
+    </div>
+    <h1>Download Any Video<br><span>In Seconds</span></h1>
+    <p>TikTok, Douyin, Instagram and Facebook — paste the link, pick your quality, and download. Completely free, no signup.</p>
+
+    <!-- PLATFORM PILLS -->
+    <div class="platform-pills">
+      <div class="pill active" onclick="selectPlatform(this, 'tiktok')"><span class="icon">🎵</span> TikTok</div>
+      <div class="pill" onclick="selectPlatform(this, 'douyin')"><span class="icon">🎶</span> Douyin</div>
+      <div class="pill" onclick="selectPlatform(this, 'instagram')"><span class="icon">📸</span> Instagram</div>
+      <div class="pill" onclick="selectPlatform(this, 'facebook')"><span class="icon">👤</span> Facebook</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT GRID -->
+  <div class="content-grid">
+    <div class="main-col">
+
+      <!-- INPUT CARD -->
+      <div class="input-card">
+
+        <div class="url-row">
+          <input
+            type="url"
+            class="url-input"
+            id="urlInput"
+            placeholder="Paste video URL here — https://..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="paste-btn" onclick="pasteFromClipboard()">📋 Paste</button>
+        </div>
+
+        <!-- QUALITY SELECTOR -->
+        <div class="quality-row">
+          <span class="quality-label">Quality:</span>
+          <button class="q-btn" onclick="selectQuality(this, '2160p')">4K</button>
+          <button class="q-btn" onclick="selectQuality(this, '1080p')">1080p <span class="badge">HD</span></button>
+          <button class="q-btn active" onclick="selectQuality(this, '720p')">720p</button>
+          <button class="q-btn" onclick="selectQuality(this, '480p')">480p</button>
+          <button class="q-btn" onclick="selectQuality(this, '360p')">360p</button>
+          <button class="q-btn" onclick="selectQuality(this, 'audio')">🎵 Audio</button>
+        </div>
+
+        <!-- DOWNLOAD BUTTON -->
+        <button class="download-btn" id="downloadBtn" onclick="handleDownload()">
+          Download Video
+        </button>
+      </div>
+
+      <!-- STATUS MESSAGE -->
+      <div class="status-msg" id="statusMsg"></div>
+
+      <!-- RESULT CARD -->
+      <div class="result-card" id="resultCard">
+        <div class="result-thumb">
+          <img id="resultThumb" src="" alt="Video thumbnail" />
+          <span class="duration-badge" id="resultDuration"></span>
+        </div>
+        <div class="result-body">
+          <div class="result-title" id="resultTitle"></div>
+          <div class="result-meta" id="resultMeta"></div>
+          <div class="download-options" id="downloadOptions"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <!-- SIDEBAR AD -->
+      <div class="ad-sidebar">
+        <div class="ad-label">Advertisement</div>
+        <!-- SIDEBAR AD — auto-configured from ADSENSE config above -->
+        <ins class="adsbygoogle ad-placeholder"
+             style="display:block;width:300px;height:600px;"
+             data-ad-client=""
+             data-ad-slot=""
+             data-ad-format="rectangle"
+             id="ad-sidebar"></ins>
+        <script>
+          if (ADSENSE.PUBLISHER_ID !== 'ca-pub-XXXXXXXXXXXXXXXX') {
+            const el = document.getElementById('ad-sidebar');
+            el.setAttribute('data-ad-client', ADSENSE.PUBLISHER_ID);
+            el.setAttribute('data-ad-slot', ADSENSE.SLOTS.SIDEBAR);
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+          }
+        </script>
+      </div>
+
+      <!-- FEATURES CARD -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Why SaveItOk</div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text"><strong>Fast processing</strong> — most videos ready in under 10 seconds</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-text"><strong>No signup needed</strong> — paste, select, download. That's it.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📱</div>
+            <div class="feature-text"><strong>Works on mobile</strong> — download directly to your phone</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎵</div>
+            <div class="feature-text"><strong>Audio extraction</strong> — save just the sound as MP3</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🚫</div>
+            <div class="feature-text"><strong>No watermarks</strong> — clean original file every time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section" id="how">
+    <div class="section-label">Simple Process</div>
+    <div class="section-title">Three Steps to Download</div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">Step 01</div>
+        <span class="step-icon">🔗</span>
+        <div class="step-title">Copy the URL</div>
+        <div class="step-desc">Open your video on TikTok, Douyin, Instagram or Facebook. Tap Share → Copy Link.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">Step 02</div>
+        <span class="step-icon">📋</span>
+        <div class="step-title">Paste & Choose Quality</div>
+        <div class="step-desc">Paste the link above. Select your preferred quality from 360p to 4K, or extract audio only.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">Step 03</div>
+        <span class="step-icon">⬇️</span>
+        <div class="step-title">Download Instantly</div>
+        <div class="step-desc">Hit the download button and your video saves directly to your device. No account needed.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MID AD -->
+<div class="ad-mid">
+  <div class="page-wrap">
+    <div class="ad-label">Advertisement</div>
+    <!-- MID PAGE AD — auto-configured from ADSENSE config above -->
+    <ins class="adsbygoogle ad-placeholder"
+         style="display:block;max-width:970px;height:250px;margin:0 auto;"
+         data-ad-client=""
+         data-ad-slot=""
+         data-ad-format="rectangle"
+         id="ad-mid-page"></ins>
+    <script>
+      if (ADSENSE.PUBLISHER_ID !== 'ca-pub-XXXXXXXXXXXXXXXX') {
+        const el = document.getElementById('ad-mid-page');
+        el.setAttribute('data-ad-client', ADSENSE.PUBLISHER_ID);
+        el.setAttribute('data-ad-slot', ADSENSE.SLOTS.MID_PAGE);
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+      }
+    </script>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- SUPPORTED PLATFORMS -->
+  <div class="platforms-section" id="platforms">
+    <div style="text-align:center;">
+      <div class="section-label">Compatibility</div>
+      <div class="section-title" style="margin-bottom:32px;">Supported Platforms</div>
+    </div>
+    <div class="platforms-grid">
+      <div class="platform-card">
+        <span class="platform-logo">🎵</span>
+        <div class="platform-name">TikTok</div>
+        <div class="platform-quality">HD · No watermark</div>
+      </div>
+      <div class="platform-card">
+        <span class="platform-logo">🎶</span>
+        <div class="platform-name">Douyin</div>
+        <div class="platform-quality">HD · No watermark</div>
+      </div>
+      <div class="platform-card">
+        <span class="platform-logo">📸</span>
+        <div class="platform-name">Instagram</div>
+        <div class="platform-quality">Reels · Stories · Posts</div>
+      </div>
+      <div class="platform-card">
+        <span class="platform-logo">👤</span>
+        <div class="platform-name">Facebook</div>
+        <div class="platform-quality">HD · SD · Audio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section" id="faq">
+    <div style="text-align:center;">
+      <div class="section-label">Questions</div>
+      <div class="section-title" style="margin-bottom:32px;">Frequently Asked</div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is SaveItOk completely free? <span class="arrow">▼</span></div>
+        <div class="faq-a">Yes. TikTok, Douyin, Instagram and Facebook downloads are completely free — no account, no payment, no hidden fees. The site is supported by advertising.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do I download a TikTok video without a watermark? <span class="arrow">▼</span></div>
+        <div class="faq-a">Paste the TikTok video link into the box above and click Download. SaveItOk automatically removes the TikTok watermark during processing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What video quality options are available? <span class="arrow">▼</span></div>
+        <div class="faq-a">Available qualities depend on the source video. We offer HD (1080p) for most platforms and an audio-only MP3 option for all supported sites.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I download Instagram Reels and Stories? <span class="arrow">▼</span></div>
+        <div class="faq-a">Yes. SaveItOk supports Instagram Reels, Stories, and regular posts. For Stories, make sure to copy the link while the story is still live.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is it legal to download videos? <span class="arrow">▼</span></div>
+        <div class="faq-a">Downloading videos for personal offline viewing is generally acceptable in most countries. Redistributing, republishing, or monetizing downloaded content without the creator's permission may violate copyright laws and platform terms of service.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why is my download not working? <span class="arrow">▼</span></div>
+        <div class="faq-a">Make sure the video URL is complete and the video is publicly accessible. Private videos, age-restricted content, and region-locked videos cannot be downloaded. Try copying the link directly from the share button.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM AD -->
+<div class="ad-bottom">
+  <div class="page-wrap">
+    <div class="ad-label">Advertisement</div>
+    <!-- BOTTOM BANNER AD — auto-configured from ADSENSE config above -->
+    <ins class="adsbygoogle ad-placeholder"
+         style="display:block;max-width:728px;height:90px;margin:0 auto;"
+         data-ad-client=""
+         data-ad-slot=""
+         data-ad-format="horizontal"
+         id="ad-bot-banner"></ins>
+    <script>
+      if (ADSENSE.PUBLISHER_ID !== 'ca-pub-XXXXXXXXXXXXXXXX') {
+        const el = document.getElementById('ad-bot-banner');
+        el.setAttribute('data-ad-client', ADSENSE.PUBLISHER_ID);
+        el.setAttribute('data-ad-slot', ADSENSE.SLOTS.BOT_BANNER);
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+      }
+    </script>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-wrap">
+  <footer>
+    <div class="footer-logo">SaveItOk</div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms & Conditions</a>
+      <a href="/dmca.html">DMCA</a>
+      <a href="mailto:saveit.support@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 SaveItOk. For personal use only.</div>
+  </footer>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <span>We use cookies to improve your experience and serve relevant ads. See our <a href="/privacy.html" style="color:var(--blue2)">Privacy Policy</a>.</span>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button class="cookie-reject" onclick="rejectCookies()">Reject</button>
+    <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+  </div>
+</div>
+
+<script>
+// ===== STATE =====
+let selectedPlatform = 'tiktok';
+let selectedQuality = '720p';
+
+// ===== PLATFORM SELECTION =====
+function selectPlatform(btn, platform) {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  selectedPlatform = platform;
+  const placeholders = {
+    tiktok: 'Paste TikTok URL — https://www.tiktok.com/@user/video/...',
+    douyin: 'Paste Douyin URL — https://www.douyin.com/video/...',
+    instagram: 'Paste Instagram URL — https://www.instagram.com/reel/...',
+    facebook: 'Paste Facebook URL — https://www.facebook.com/watch?v=...'
+  };
+  document.getElementById('urlInput').placeholder = placeholders[platform] || 'Paste video URL here — https://...';
+}
+
+// ===== QUALITY SELECTION =====
+function selectQuality(btn, quality) {
+  document.querySelectorAll('.q-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedQuality = quality;
+}
+
+// ===== PASTE FROM CLIPBOARD =====
+async function pasteFromClipboard() {
+  try {
+    const text = await navigator.clipboard.readText();
+    document.getElementById('urlInput').value = text;
+    document.getElementById('urlInput').focus();
+  } catch(e) {
+    document.getElementById('urlInput').focus();
+    showStatus('Tap inside the box and paste manually (Ctrl+V or long press → Paste)', 'error');
+  }
+}
+
+// ===== STATUS MESSAGES =====
+function showStatus(msg, type, isHtml) {
+  const el = document.getElementById('statusMsg');
+  if (isHtml) {
+    el.innerHTML = msg;
+  } else {
+    el.textContent = msg;
+  }
+  el.className = `status-msg ${type} show`;
+  el.style.lineHeight = isHtml ? '1.8' : '';
+  setTimeout(() => el.classList.remove('show'), 6000);
+}
+
+// ===== DETECT PLATFORM FROM URL =====
+function detectPlatform(url) {
+  if (url.includes('tiktok.com')) return 'TikTok';
+  if (url.includes('douyin.com')) return 'Douyin';
+  if (url.includes('instagram.com')) return 'Instagram';
+  if (url.includes('facebook.com') || url.includes('fb.watch')) return 'Facebook';
+  if (url.includes('youtube.com') || url.includes('youtu.be')) return 'YouTube';
+  return 'Unknown';
+}
+
+// ===== VALIDATE URL =====
+function isValidUrl(url) {
+  try {
+    new URL(url);
+    return url.startsWith('http');
+  } catch {
+    return false;
+  }
+}
+
+// ===== HANDLE DOWNLOAD =====
+async function handleDownload() {
+  const url = document.getElementById('urlInput').value.trim();
+  const btn = document.getElementById('downloadBtn');
+
+  if (!url) {
+    showStatus('Please paste a video URL first.', 'error');
+    return;
+  }
+
+  if (!isValidUrl(url)) {
+    showStatus('That doesn\'t look like a valid URL. Copy the link directly from the app.', 'error');
+    return;
+  }
+
+  const platform = detectPlatform(url);
+
+  if (platform === 'YouTube') {
+    showStatus('YouTube isn\'t supported. SaveItOk works with TikTok, Douyin, Instagram and Facebook.', 'error');
+    return;
+  }
+  if (platform === 'Unknown') {
+    showStatus('Platform not supported. Paste a link from TikTok, Douyin, Instagram, or Facebook.', 'error');
+    return;
+  }
+
+  // Show loading state
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Fetching video...';
+  document.getElementById('resultCard').classList.remove('show');
+
+  // ===== Download via /api/download proxy (server calls the downloader API) =====
+  try {
+    const response = await fetch('/api/download', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        url: url,
+        quality: selectedQuality,
+        isAudioOnly: selectedQuality === 'audio'
+      }),
+      signal: AbortSignal.timeout(30000)
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || data.status === 'error') {
+      // Log the raw API response so we can see exactly what the downloader returned
+      if (data && data.debug) { try { console.log('Downloader debug:', data.debug); } catch(_){} }
+      throw new Error(data.text || data.error || 'Download failed. Try again in a moment.');
+    }
+
+    renderCobaltResult(url, platform, selectedQuality, data);
+
+  } catch(e) {
+    // Show the actual error message from the server (don't mask it)
+    const msg = e.message && e.message.includes('timeout')
+      ? 'Connection timed out. Check your internet and try again.'
+      : (e.message || 'Download failed. The link may be private or expired.');
+    showStatus(msg, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'Download Video';
+  }
+}
+
+// ===== HELPER: Escape HTML to prevent XSS =====
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+// ===== HELPER: Build download option element safely (no XSS) =====
+function makeDlOption(qualityLabel, infoLabel, downloadUrl, filename) {
+  const div = document.createElement('div');
+  div.className = 'dl-option';
+  div.innerHTML = `
+    <div class="dl-option-left">
+      <div>
+        <div class="dl-quality">${escapeHtml(qualityLabel)}</div>
+        <div class="dl-info">${escapeHtml(infoLabel)}</div>
+      </div>
+    </div>
+    <button class="dl-btn">⬇ Download</button>
+  `;
+  div.querySelector('button').addEventListener('click', () => triggerDownload(downloadUrl, filename));
+  return div;
+}
+
+// ===== RENDER RESULT =====
+function renderCobaltResult(originalUrl, platform, quality, data) {
+
+  const genericThumb = 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80';
+
+  // Use the real thumbnail from the API when available
+  const thumb = data.thumbnail || genericThumb;
+  const thumbEl = document.getElementById('resultThumb');
+  thumbEl.src = thumb;
+  thumbEl.onerror = function() { this.src = genericThumb; };
+
+  // Duration (API gives milliseconds for some sources; show mm:ss if it looks like seconds)
+  let durText = quality === 'audio' ? '🎵 Audio' : (quality || '');
+  document.getElementById('resultDuration').textContent = durText;
+
+  // Real title from the API, falling back to a platform label
+  const titleFallback = {
+    TikTok: 'TikTok Video',
+    Douyin: 'Douyin Video',
+    Instagram: 'Instagram Video',
+    Facebook: 'Facebook Video',
+  };
+  document.getElementById('resultTitle').textContent = data.title || titleFallback[platform] || 'Video Ready';
+
+  const metaBits = [`<span>📱 ${escapeHtml(data.source || platform)}</span>`, '<span>✅ Ready</span>'];
+  if (data.author) metaBits.push(`<span>👤 ${escapeHtml(data.author)}</span>`);
+  document.getElementById('resultMeta').innerHTML = metaBits.join('');
+
+  const container = document.getElementById('downloadOptions');
+  container.innerHTML = '';
+
+  const items = Array.isArray(data.picker) ? data.picker : [];
+  const safePlatform = (platform || 'video').toLowerCase();
+
+  items.forEach((item, i) => {
+    const label = item.label || (item.type === 'audio' ? 'Audio (MP3)' : 'Video');
+    const ext = item.ext || (item.type === 'audio' ? 'mp3' : 'mp4');
+    const info = item.type === 'audio' ? 'MP3 · Audio only' : `${ext.toUpperCase()} · Video`;
+    const fname = `${safePlatform}_${i + 1}.${ext}`;
+    container.appendChild(makeDlOption(label, info, item.url, fname));
+  });
+
+  if (!container.children.length) {
+    container.innerHTML = '<p style="color:var(--muted2);font-size:13px;padding:12px 0;">No download links found. The video may be private or restricted.</p>';
+  }
+
+  document.getElementById('resultCard').classList.add('show');
+  document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  showStatus('Video ready. Tap Download to save to your device.', 'success');
+}
+
+// ===== TRIGGER ACTUAL FILE DOWNLOAD =====
+function triggerDownload(downloadUrl, filename) {
+  try {
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = filename || 'saveit_video.mp4';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showStatus('Download started! Check your Downloads folder.', 'success');
+  } catch(e) {
+    // Fallback: open in new tab
+    window.open(downloadUrl, '_blank');
+  }
+}
+
+// ===== SET AUDIO AND RE-RUN =====
+function setAudioAndRerun() {
+  document.querySelectorAll('.q-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.q-btn').forEach(b => {
+    if (b.textContent.includes('Audio')) b.classList.add('active');
+  });
+  selectedQuality = 'audio';
+  handleDownload();
+}
+
+// ===== FAQ TOGGLE =====
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ===== COOKIE BANNER =====
+function acceptCookies() {
+  localStorage.setItem('cookies_consent', 'accepted');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
+function rejectCookies() {
+  localStorage.setItem('cookies_consent', 'rejected');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
+// Hide banner if a choice was already made
+if (localStorage.getItem('cookies_consent')) {
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
+// ===== ENTER KEY =====
+document.getElementById('urlInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleDownload();
+});
+
+// ===== AUTO DETECT PLATFORM ON PASTE =====
+document.getElementById('urlInput').addEventListener('input', e => {
+  const url = e.target.value;
+  const platform = detectPlatform(url);
+  if (platform !== 'Unknown' && platform !== 'YouTube') {
+    const map = { TikTok: 'tiktok', Douyin: 'douyin', Instagram: 'instagram', Facebook: 'facebook' };
+    document.querySelectorAll('.pill').forEach(p => {
+      p.classList.toggle('active', p.textContent.trim().toLowerCase().includes(platform.toLowerCase()));
+    });
+    selectedPlatform = map[platform];
+  }
+});
+</script>
+
+</body>
+</html>
