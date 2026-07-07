@@ -326,6 +326,21 @@ header {
 
 .paste-btn:hover { color: var(--text); border-color: var(--border2); }
 
+.clear-btn {
+  background: var(--bg3);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  font-family: var(--ff-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted2);
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1;
+}
+.clear-btn:hover { color: var(--red); border-color: var(--red); }
+
 /* QUALITY SELECTOR */
 .quality-row {
   display: flex;
@@ -848,16 +863,31 @@ footer {
   .content-grid { grid-template-columns: 1fr; }
   .sidebar { display: none; }
   .steps-grid { grid-template-columns: 1fr; }
-  .platforms-grid { grid-template-columns: repeat(3, 1fr); }
+  .platforms-grid { grid-template-columns: repeat(2, 1fr); }
   .nav-links { display: none; }
 }
 
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2rem; }
+  .page-wrap { padding: 0 14px; }
+  .hero { padding: 36px 0 32px; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero p { font-size: 15px; }
   .platforms-grid { grid-template-columns: repeat(2, 1fr); }
-  .url-row { flex-direction: column; }
-  .paste-btn { width: 100%; }
+  .input-card { padding: 18px; }
+  /* Input full width on its own row; Paste + Clear share the row below */
+  .url-row { flex-wrap: wrap; gap: 8px; }
+  .url-input { flex: 1 1 100%; }
+  .paste-btn { flex: 1 1 auto; }
+  .clear-btn { flex: 0 0 auto; }
+  .quality-row { gap: 6px; }
+  .q-btn { padding: 8px 12px; font-size: 12px; }
   footer { flex-direction: column; text-align: center; }
+  .section-title { font-size: 1.5rem; }
+}
+
+@media (max-width: 380px) {
+  .hero h1 { font-size: 1.7rem; }
+  .platforms-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -949,6 +979,7 @@ footer {
             spellcheck="false"
           />
           <button class="paste-btn" onclick="pasteFromClipboard()">📋 Paste</button>
+          <button class="clear-btn" id="clearBtn" onclick="clearUrl()" title="Clear">✕</button>
         </div>
 
         <!-- QUALITY SELECTOR -->
@@ -1230,12 +1261,24 @@ function selectQuality(btn, quality) {
 async function pasteFromClipboard() {
   try {
     const text = await navigator.clipboard.readText();
-    document.getElementById('urlInput').value = text;
-    document.getElementById('urlInput').focus();
+    const input = document.getElementById('urlInput');
+    input.value = text;
+    input.focus();
+    input.dispatchEvent(new Event('input'));
   } catch(e) {
     document.getElementById('urlInput').focus();
-    showStatus('Tap inside the box and paste manually (Ctrl+V or long press → Paste)', 'error');
+    showStatus('Tap inside the box and paste manually (long press → Paste)', 'error');
   }
+}
+
+// ===== CLEAR URL =====
+function clearUrl() {
+  const input = document.getElementById('urlInput');
+  input.value = '';
+  input.focus();
+  document.getElementById('resultCard').classList.remove('show');
+  document.getElementById('statusMsg').classList.remove('show');
+  input.dispatchEvent(new Event('input'));
 }
 
 // ===== STATUS MESSAGES =====
@@ -1400,7 +1443,18 @@ function renderCobaltResult(originalUrl, platform, quality, data) {
     const ext = item.ext || (item.type === 'audio' ? 'mp3' : 'mp4');
     const info = item.type === 'audio' ? 'MP3 · Audio only' : `${ext.toUpperCase()} · Video`;
     const fname = `${safePlatform}_${i + 1}.${ext}`;
-    container.appendChild(makeDlOption(label, info, item.url, fname));
+
+    // Route ALL downloads through our /api/proxy. The proxy fetches the file
+    // server-side and returns it with Content-Disposition: attachment, so the
+    // browser SAVES the file instead of opening it in a new tab. This fixes:
+    //  - Douyin geo-block (zjcdn 403 for non-China IPs)
+    //  - iOS/Safari opening the video instead of downloading
+    //  - files opening in a different browser/tab
+    const proxied = item.url
+      ? `/api/proxy?url=${encodeURIComponent(item.url)}&name=${encodeURIComponent(fname)}`
+      : item.url;
+
+    container.appendChild(makeDlOption(label, info, proxied, fname));
   });
 
   if (!container.children.length) {
@@ -1414,19 +1468,21 @@ function renderCobaltResult(originalUrl, platform, quality, data) {
 
 // ===== TRIGGER ACTUAL FILE DOWNLOAD =====
 function triggerDownload(downloadUrl, filename) {
+  // Because the URL points at our /api/proxy (which sends the file with a
+  // Content-Disposition: attachment header), navigating to it downloads the file.
+  // No target="_blank" — that's what caused new tabs / iOS to just open the video.
   try {
     const a = document.createElement('a');
     a.href = downloadUrl;
-    a.download = filename || 'saveit_video.mp4';
-    a.target = '_blank';
+    a.download = filename || 'saveitok_video.mp4';
     a.rel = 'noopener';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    showStatus('Download started! Check your Downloads folder.', 'success');
+    showStatus('Download started. Check your Downloads folder.', 'success');
   } catch(e) {
-    // Fallback: open in new tab
-    window.open(downloadUrl, '_blank');
+    // Fallback for older browsers
+    window.location.href = downloadUrl;
   }
 }
 
