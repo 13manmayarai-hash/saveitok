@@ -1,0 +1,9 @@
+# SaveItOk — robots.txt
+User-agent: *
+Allow: /
+
+# Block internal API endpoints (no SEO value, avoid crawl waste)
+Disallow: /api/
+Disallow: /.netlify/
+
+Sitemap: https://saveitok.com/sitemap.xml

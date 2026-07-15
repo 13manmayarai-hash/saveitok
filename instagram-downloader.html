@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Downloader — Save Instagram Videos &amp; Reels Free | SaveItOk</title>
+<meta name="description" content="Free Instagram downloader. Save Instagram videos, Reels and photos in HD. No app, no login — paste the link and download.">
+<meta name="keywords" content="instagram downloader, instagram video downloader, download instagram video, save instagram reel">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3B82F6">
+<link rel="canonical" href="https://saveitok.com/instagram-downloader">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/manifest.json">
+<!-- Open Graph -->
+<meta property="og:title" content="Instagram Downloader — Save Instagram Videos &amp; Reels Free | SaveItOk">
+<meta property="og:description" content="Free Instagram downloader. Save Instagram videos, Reels and photos in HD. No app, no login — paste the link and download.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saveitok.com/instagram-downloader">
+<meta property="og:image" content="https://saveitok.com/og-image.png">
+<meta property="og:site_name" content="SaveItOk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Instagram Downloader — Save Instagram Videos &amp; Reels Free | SaveItOk">
+<meta name="twitter:description" content="Free Instagram downloader. Save Instagram videos, Reels and photos in HD. No app, no login — paste the link and download.">
+<meta name="twitter:image" content="https://saveitok.com/og-image.png">
+<!-- Structured data -->
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SaveItOk Instagram Downloader", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Free Instagram downloader. Save Instagram videos, Reels and photos in HD. No app, no login — paste the link and download.", "url": "https://saveitok.com/instagram-downloader"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I download Instagram Reels?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Paste the Reel's link into the box above and download it in HD."}}, {"@type": "Question", "name": "Do I need an Instagram account?", "acceptedAnswer": {"@type": "Answer", "text": "No. SaveItOk works without logging into Instagram, for public content."}}, {"@type": "Question", "name": "Why won't a private post download?", "acceptedAnswer": {"@type": "Answer", "text": "Private accounts and Stories from private profiles can't be accessed. Only public content can be downloaded."}}]}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saveitok.com/"}, {"@type": "ListItem", "position": 2, "name": "Instagram Downloader", "item": "https://saveitok.com/instagram-downloader"}]}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080C14;--bg2:#0D1220;--bg3:#131A2A;--border2:rgba(255,255,255,0.08);
+  --text:#EEF0F5;--muted:#5A6478;--muted2:#8892A4;--blue:#3B82F6;--blue2:#60A5FA;--green:#10B981;--red:#EF4444;
+  --grad:linear-gradient(135deg,#3B82F6 0%,#22D3EE 100%);
+  --ff-head:'Space Grotesk',sans-serif;--ff-body:'Inter',sans-serif;--r:12px;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-body);line-height:1.6}
+a{color:var(--blue2);text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:0.5px solid var(--border2)}
+.logo{display:flex;align-items:center;gap:2px;font-family:var(--ff-head);font-weight:800;font-size:1.2rem}
+nav a{font-size:13px;color:var(--muted2);margin-left:16px}
+.hero{text-align:center;padding:40px 0 24px}
+.hero h1{font-family:var(--ff-head);font-size:2rem;font-weight:800;margin-bottom:10px}
+.hero .tagline{color:var(--muted2);font-size:15px;max-width:520px;margin:0 auto}
+.card{background:var(--bg2);border:0.5px solid var(--border2);border-radius:16px;padding:20px;margin:8px 0 28px}
+.url-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.url-input{flex:1 1 100%;background:var(--bg);border:0.5px solid var(--border2);border-radius:var(--r);padding:14px 16px;font-family:var(--ff-body);font-size:14px;color:var(--text);outline:none}
+.url-input:focus{border-color:var(--blue)}
+.btn-row{display:flex;gap:8px}
+.paste-btn,.clear-btn{background:var(--bg3);border:0.5px solid var(--border2);border-radius:var(--r);padding:12px 16px;font-family:var(--ff-head);font-size:13px;font-weight:600;color:var(--muted2);cursor:pointer}
+.paste-btn{flex:1}
+.clear-btn:hover{color:var(--red);border-color:var(--red)}
+.quality-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;align-items:center}
+.q-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.q-btn{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:8px 12px;font-family:var(--ff-head);font-size:12px;font-weight:600;color:var(--muted2);cursor:pointer}
+.q-btn.active{background:rgba(59,130,246,0.15);border-color:var(--blue);color:var(--blue2)}
+.dl-btn{width:100%;background:var(--grad);border:none;border-radius:var(--r);padding:15px;font-family:var(--ff-head);font-size:15px;font-weight:700;color:#fff;cursor:pointer}
+.dl-btn:disabled{opacity:0.7}
+.status{margin-top:12px;padding:12px 14px;border-radius:var(--r);font-size:13px;display:none}
+.status.show{display:block}
+.status.error{background:rgba(239,68,68,0.08);border:0.5px solid rgba(239,68,68,0.3);color:#FCA5A5}
+.status.success{background:rgba(16,185,129,0.08);border:0.5px solid rgba(16,185,129,0.3);color:#6EE7B7}
+.result{margin-top:14px;display:none}
+.result.show{display:block}
+.dl-opt{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--bg3);border:0.5px solid var(--border2);border-radius:var(--r);padding:12px 14px;margin-bottom:8px}
+.dl-opt .meta strong{display:block;font-family:var(--ff-head);font-size:14px}
+.dl-opt .meta span{font-size:11px;color:var(--muted2)}
+.dl-opt button{background:var(--grad);border:none;border-radius:8px;padding:9px 16px;font-family:var(--ff-head);font-size:12px;font-weight:700;color:#fff;cursor:pointer}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:8px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+section{margin:32px 0}
+h2{font-family:var(--ff-head);font-size:1.4rem;font-weight:700;margin-bottom:14px}
+.intro{color:var(--muted2);font-size:15px}
+.how-list{list-style:none;counter-reset:s}
+.how-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.step-n{flex:0 0 28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--grad);border-radius:8px;font-family:var(--ff-head);font-weight:700;font-size:13px;color:#fff}
+.how-list p{color:var(--muted2);font-size:14px;padding-top:3px}
+.ben-list{list-style:none}
+.ben-list li{position:relative;padding-left:26px;margin-bottom:8px;color:var(--muted2);font-size:14px}
+.ben-list li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.faq-item{border-bottom:0.5px solid var(--border2)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:14px 0;font-family:var(--ff-head);font-size:14px;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.25s;color:var(--muted2);font-size:14px}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:14px}
+.faq-item.open .arrow{transform:rotate(180deg)}
+.arrow{transition:transform 0.2s}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{background:var(--bg3);border:0.5px solid var(--border2);border-radius:20px;padding:7px 14px;font-size:12px;color:var(--muted2)}
+.links a:hover{color:var(--text);border-color:var(--blue)}
+footer{border-top:0.5px solid var(--border2);padding:24px 0;margin-top:40px;text-align:center}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:12px}
+.footer-links a{font-size:12px;color:var(--muted2)}
+.footer-copy{font-size:12px;color:var(--muted)}
+@media(max-width:600px){.hero h1{font-size:1.7rem}.wrap{padding:0 14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a href="/" class="logo" aria-label="SaveItOk home">Save<span style="color:var(--blue2)">It</span>Ok</a>
+    <nav aria-label="Primary">
+      <a href="/tiktok-downloader">TikTok</a>
+      <a href="/instagram-downloader">Instagram</a>
+      <a href="/facebook-video-downloader">Facebook</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Instagram Downloader</h1>
+      <p class="tagline">Download Instagram videos, Reels and posts in HD — free.</p>
+    </div>
+
+    <!-- DOWNLOAD WIDGET -->
+    <div class="card">
+      <div class="url-row">
+        <input type="url" class="url-input" id="urlInput" placeholder="Paste video URL here — https://..." autocomplete="off" spellcheck="false" aria-label="Video URL">
+        <div class="btn-row" style="flex:1 1 100%">
+          <button class="paste-btn" onclick="pasteUrl()" type="button">📋 Paste</button>
+          <button class="clear-btn" onclick="clearUrl()" type="button" title="Clear" aria-label="Clear">✕</button>
+        </div>
+      </div>
+      <div class="quality-row" role="group" aria-label="Quality">
+        <span class="q-label">Quality</span>
+        <button class="q-btn" data-q="4k" onclick="selQ(this)" type="button">4K</button>
+        <button class="q-btn active" data-q="1080p" onclick="selQ(this)" type="button">1080p</button>
+        <button class="q-btn" data-q="720p" onclick="selQ(this)" type="button">720p</button>
+        <button class="q-btn" data-q="audio" onclick="selQ(this)" type="button">🎵 Audio</button>
+      </div>
+      <button class="dl-btn" id="dlBtn" onclick="doDownload()" type="button">Download Video</button>
+      <div class="status" id="status" role="alert"></div>
+      <div class="result" id="result">
+        <div id="dlOptions"></div>
+      </div>
+    </div>
+
+    <section>
+      <h2>About this Instagram Downloader</h2>
+      <p class="intro">SaveItOk is a free Instagram downloader for saving public Instagram videos, Reels and posts to your device in high quality. No app, no login — copy the link, paste it here, and download in seconds.</p>
+    </section>
+
+    <section>
+      <h2>How to download</h2>
+      <ol class="how-list">
+        <li><span class="step-n">1</span><p>Open the Instagram post or Reel and copy its link (tap ••• → Copy Link).</p></li>
+<li><span class="step-n">2</span><p>Paste the link into the box above.</p></li>
+<li><span class="step-n">3</span><p>Tap Download and save the video to your device.</p></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Why use SaveItOk</h2>
+      <ul class="ben-list">
+        <li>Saves Reels, video posts and more</li>
+<li>HD quality</li>
+<li>No signup or app needed</li>
+<li>Works on iPhone and Android</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I download Instagram Reels?<span class="arrow" aria-hidden="true">▾</span></button><div class="faq-a">Yes. Paste the Reel&#x27;s link into the box above and download it in HD.</div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Do I need an Instagram account?<span class="arrow" aria-hidden="true">▾</span></button><div class="faq-a">No. SaveItOk works without logging into Instagram, for public content.</div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Why won&#x27;t a private post download?<span class="arrow" aria-hidden="true">▾</span></button><div class="faq-a">Private accounts and Stories from private profiles can&#x27;t be accessed. Only public content can be downloaded.</div></div>
+    </section>
+
+    <section>
+      <h2>More downloaders</h2>
+      <div class="links">
+        <a href="/tiktok-downloader">TikTok Downloader</a>
+<a href="/tiktok-without-watermark">TikTok Downloader Without Watermark</a>
+<a href="/instagram-reels-downloader">Instagram Reels Downloader</a>
+<a href="/instagram-story-downloader">Instagram Story Downloader</a>
+<a href="/facebook-video-downloader">Facebook Video Downloader</a>
+<a href="/facebook-reels-downloader">Facebook Reels Downloader</a>
+<a href="/douyin-downloader">Douyin Downloader</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/dmca.html">DMCA</a>
+    </div>
+    <div class="footer-copy">© 2026 SaveItOk. For personal use only.</div>
+  </footer>
+
+</div>
+
+<script>
+let selectedQuality='1080p';
+const DEFAULT_PLATFORM='instagram';
+
+function selQ(btn){
+  document.querySelectorAll('.q-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedQuality=btn.dataset.q;
+}
+async function pasteUrl(){
+  try{const t=await navigator.clipboard.readText();document.getElementById('urlInput').value=t;}
+  catch(e){document.getElementById('urlInput').focus();}
+}
+function clearUrl(){
+  document.getElementById('urlInput').value='';
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('status').classList.remove('show');
+  document.getElementById('urlInput').focus();
+}
+function showStatus(msg,type){
+  const el=document.getElementById('status');
+  el.textContent=msg;el.className='status show '+type;
+}
+function isValidUrl(u){try{new URL(u);return u.startsWith('http');}catch{return false;}}
+
+async function doDownload(){
+  const url=document.getElementById('urlInput').value.trim();
+  const btn=document.getElementById('dlBtn');
+  if(!url){showStatus('Please paste a video URL first.','error');return;}
+  if(!isValidUrl(url)){showStatus('That doesn\'t look like a valid link. Copy it directly from the app.','error');return;}
+  if(url.includes('youtube.com')||url.includes('youtu.be')){showStatus('YouTube isn\'t supported. Try TikTok, Douyin, Instagram or Facebook.','error');return;}
+
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Fetching video...';
+  document.getElementById('result').classList.remove('show');
+  try{
+    const res=await fetch('/api/download',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({url,quality:selectedQuality,isAudioOnly:selectedQuality==='audio'}),
+      signal:AbortSignal.timeout(30000)
+    });
+    const data=await res.json();
+    if(!res.ok||data.status==='error'){throw new Error(data.text||data.error||'Download failed. Try again.');}
+    renderResult(data);
+  }catch(e){
+    showStatus(e.message&&e.message.includes('timeout')?'Connection timed out. Try again.':(e.message||'Download failed.'),'error');
+  }finally{
+    btn.disabled=false;btn.innerHTML='Download Video';
+  }
+}
+
+function renderResult(data){
+  const items=Array.isArray(data.picker)?data.picker:[];
+  const box=document.getElementById('dlOptions');
+  box.innerHTML='';
+  const plat=(data.source||DEFAULT_PLATFORM||'video').toLowerCase();
+  items.forEach((it,i)=>{
+    const label=it.label||(it.type==='audio'?'Audio (MP3)':'Video');
+    const ext=it.ext||(it.type==='audio'?'mp3':'mp4');
+    const info=it.type==='audio'?'MP3 · Audio only':(ext.toUpperCase()+' · Video');
+    const fname=plat+'_'+(i+1)+'.'+ext;
+    const proxied=it.url?('/api/proxy?url='+encodeURIComponent(it.url)+'&name='+encodeURIComponent(fname)):it.url;
+    const row=document.createElement('div');
+    row.className='dl-opt';
+    const m=document.createElement('div');m.className='meta';
+    const s=document.createElement('strong');s.textContent=label;
+    const sp=document.createElement('span');sp.textContent=info;
+    m.appendChild(s);m.appendChild(sp);
+    const b=document.createElement('button');b.type='button';b.textContent='Download';
+    b.addEventListener('click',()=>{
+      const a=document.createElement('a');a.href=proxied;a.download=fname;a.rel='noopener';
+      document.body.appendChild(a);a.click();document.body.removeChild(a);
+      showStatus('Download started. Check your Downloads folder.','success');
+    });
+    row.appendChild(m);row.appendChild(b);box.appendChild(row);
+  });
+  if(!box.children.length){box.innerHTML='<p style="color:var(--muted2);font-size:13px">No download links found. The video may be private or restricted.</p>';}
+  document.getElementById('result').classList.add('show');
+  showStatus('Video ready. Tap Download to save.','success');
+}
+
+document.getElementById('urlInput').addEventListener('keydown',e=>{if(e.key==='Enter')doDownload();});
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+    if(!open){item.classList.add('open');q.setAttribute('aria-expanded','true');}
+    else q.setAttribute('aria-expanded','false');
+  });
+});
+</script>
+</body>
+</html>

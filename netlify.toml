@@ -1,7 +1,7 @@
 [build]
   functions = "netlify/functions"
 
-# API routes → serverless functions
+# ---- API routes → serverless functions ----
 [[redirects]]
   from = "/api/download"
   to = "/.netlify/functions/download"
@@ -12,7 +12,50 @@
   to = "/.netlify/functions/proxy"
   status = 200
 
-# Real 404s for unknown pages
+# ---- Clean URLs for SEO landing pages (serve .html at extensionless path) ----
+[[redirects]]
+  from = "/tiktok-downloader"
+  to = "/tiktok-downloader.html"
+  status = 200
+[[redirects]]
+  from = "/tiktok-without-watermark"
+  to = "/tiktok-without-watermark.html"
+  status = 200
+[[redirects]]
+  from = "/instagram-downloader"
+  to = "/instagram-downloader.html"
+  status = 200
+[[redirects]]
+  from = "/instagram-reels-downloader"
+  to = "/instagram-reels-downloader.html"
+  status = 200
+[[redirects]]
+  from = "/instagram-story-downloader"
+  to = "/instagram-story-downloader.html"
+  status = 200
+[[redirects]]
+  from = "/facebook-video-downloader"
+  to = "/facebook-video-downloader.html"
+  status = 200
+[[redirects]]
+  from = "/facebook-reels-downloader"
+  to = "/facebook-reels-downloader.html"
+  status = 200
+[[redirects]]
+  from = "/douyin-downloader"
+  to = "/douyin-downloader.html"
+  status = 200
+
+# ---- Security headers ----
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# ---- Real 404s for unknown pages ----
 [[redirects]]
   from = "/*"
   to = "/404.html"
