@@ -14,24 +14,33 @@
 <meta property="og:image" content="https://saveitok.com/og-image.png">
 <meta name="theme-color" content="#3B82F6">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #080C14; --bg1: #0D1220; --border: rgba(255,255,255,0.06);
-  --text: #EEF0F5; --muted: #5A6478; --muted2: #8892A4;
-  --blue: #3B82F6; --blue2: #60A5FA;
-  --grad: linear-gradient(135deg, #3B82F6 0%, #22D3EE 100%);
-  --ff-head: 'Space Grotesk', sans-serif; --ff-body: 'Inter', sans-serif;
+  --bg: #FFF7EC; --bg1: #FFFFFF; --border: #191521;
+  --text: #191521; --muted: #8A8296; --muted2: #565063;
+  --accent: #FF3D81; --accent2: #7C3AED;
+  --grad: linear-gradient(135deg, #FF3D81 0%, #FFC93C 100%);
+  --ff-head: 'Fredoka', sans-serif; --ff-body: 'Inter', sans-serif;
 }
-body { background: var(--bg); color: var(--text); font-family: var(--ff-body); }
-.wrap { max-width: 720px; margin: 0 auto; padding: 60px 20px; }
-.logo { font-family: var(--ff-head); font-weight: 800; font-size: 1.4rem; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 48px; display: inline-block; text-decoration: none; }
-h1 { font-family: var(--ff-head); font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+body { background: var(--bg); color: var(--text); font-family: var(--ff-body); overflow-x: hidden; position: relative; }
+body::before {
+  content: ''; position: fixed; top: -12%; right: -10%; width: 500px; height: 500px;
+  border-radius: 50%; filter: blur(80px); opacity: 0.3; pointer-events: none; z-index: 0;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+}
+.wrap {
+  max-width: 720px; margin: 40px auto; padding: 48px 40px; position: relative; z-index: 1;
+  background: var(--bg1); border: 2.5px solid var(--border); border-radius: 28px;
+  box-shadow: 8px 8px 0 var(--border);
+}
+.logo { font-family: var(--ff-head); font-weight: 700; font-size: 1.4rem; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 48px; display: inline-block; text-decoration: none; }
+h1 { font-family: var(--ff-head); font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
 .date { font-size: 13px; color: var(--muted2); margin-bottom: 40px; }
 h2 { font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 32px 0 12px; }
 p { font-size: 14px; color: var(--muted2); line-height: 1.8; margin-bottom: 16px; }
-a { color: var(--blue2); }
+a { color: var(--accent2); font-weight: 600; }
 </style>
 </head>
 <body>
