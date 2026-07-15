@@ -5,24 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page Not Found — SaveItOk</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #080C14; --text: #EEF0F5; --muted2: #8892A4;
-  --blue: #3B82F6; --blue2: #60A5FA;
-  --grad: linear-gradient(135deg, #3B82F6 0%, #22D3EE 100%);
-  --ff-head: 'Space Grotesk', sans-serif; --ff-body: 'Inter', sans-serif;
+  --bg: #FFF7EC; --bg1: #FFFFFF; --border: #191521;
+  --text: #191521; --muted2: #565063;
+  --accent: #FF3D81; --accent2: #7C3AED;
+  --grad: linear-gradient(135deg, #FF3D81 0%, #FFC93C 100%);
+  --grad2: linear-gradient(135deg, #7C3AED 0%, #FF3D81 50%, #FFC93C 100%);
+  --ff-head: 'Fredoka', sans-serif; --ff-body: 'Inter', sans-serif;
 }
 body {
   background: var(--bg); color: var(--text); font-family: var(--ff-body);
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 20px;
+  text-align: center; padding: 20px; overflow-x: hidden; position: relative;
 }
-.wrap { max-width: 440px; }
+body::before, body::after {
+  content: ''; position: fixed; border-radius: 50%; filter: blur(70px);
+  pointer-events: none; z-index: 0; opacity: 0.35;
+}
+body::before { top: -10%; left: -8%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent) 0%, transparent 70%); }
+body::after { bottom: -12%; right: -8%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent2) 0%, transparent 70%); }
+.wrap {
+  max-width: 440px; position: relative; z-index: 1;
+  background: var(--bg1); border: 2.5px solid var(--border); border-radius: 28px;
+  padding: 48px 36px; box-shadow: 8px 8px 0 var(--border);
+}
+.sticker { font-size: 32px; display: block; margin-bottom: 4px; }
 .code {
-  font-family: var(--ff-head); font-weight: 800; font-size: 6rem;
-  background: var(--grad); -webkit-background-clip: text;
+  font-family: var(--ff-head); font-weight: 700; font-size: 6rem;
+  background: var(--grad2); -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;
 }
 h1 { font-family: var(--ff-head); font-size: 1.5rem; font-weight: 700; margin: 12px 0 8px; }
@@ -30,12 +43,17 @@ p { color: var(--muted2); font-size: 14px; line-height: 1.7; margin-bottom: 28px
 a.btn {
   display: inline-block; background: var(--grad); color: #fff;
   font-family: var(--ff-head); font-weight: 700; font-size: 14px;
-  text-decoration: none; padding: 12px 28px; border-radius: 12px;
+  text-decoration: none; padding: 13px 28px; border-radius: 14px;
+  border: 2.5px solid var(--border); box-shadow: 5px 5px 0 var(--border);
+  transition: all 0.15s;
 }
+a.btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--border); }
+a.btn:active { transform: translate(1px,1px); box-shadow: 2px 2px 0 var(--border); }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <span class="sticker" aria-hidden="true">🔍</span>
   <div class="code">404</div>
   <h1>Page Not Found</h1>
   <p>The page you're looking for doesn't exist or may have moved. Let's get you back to downloading videos.</p>
