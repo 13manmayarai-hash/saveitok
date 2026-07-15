@@ -34,10 +34,11 @@
   const ADSENSE = {
     PUBLISHER_ID: 'ca-pub-4216510563299653',
     SLOTS: {
-      TOP_BANNER:  '2102325825', // SaveItOk Top Banner
-      SIDEBAR:     '6143467014', // SaveItOk Sidebar
-      MID_PAGE:    '5395573114', // SaveItOk Mid Page
-      BOT_BANNER:  '2769409773', // SaveItOk Bottom Banner
+      TOP_BANNER:    '2102325825', // SaveItOk Top Banner
+      SIDEBAR:       '6143467014', // SaveItOk Sidebar
+      MID_PAGE:      '5395573114', // SaveItOk Mid Page
+      BOT_BANNER:    '2769409773', // SaveItOk Bottom Banner
+      STICKY_ANCHOR: '',           // PLACEHOLDER — create a new ad unit in AdSense and paste its slot ID here
     }
   };
 </script>
@@ -136,6 +137,47 @@ body::before {
 }
 
 .ad-top .ad-placeholder { height: 90px; max-width: 728px; margin: 0 auto; }
+
+/* ===== STICKY / ANCHOR AD ===== */
+.ad-sticky {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--bg2);
+  border-top: 0.5px solid var(--border2);
+  z-index: 900;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.ad-sticky.visible { transform: translateY(0); }
+.ad-sticky-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6px 40px 6px 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ad-sticky .ad-placeholder { height: 50px; flex: 1; }
+.ad-sticky-close {
+  position: absolute;
+  top: 50%; right: 8px;
+  transform: translateY(-50%);
+  background: var(--bg3);
+  border: 0.5px solid var(--border2);
+  border-radius: 50%;
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted2);
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 1;
+}
+body.has-sticky-ad { padding-bottom: 62px; }
+@media (min-width: 728px) {
+  .ad-sticky .ad-placeholder { height: 90px; }
+  body.has-sticky-ad { padding-bottom: 102px; }
+}
 
 /* ===== HEADER ===== */
 header {
@@ -1222,6 +1264,23 @@ footer {
   </footer>
 </div>
 
+<!-- STICKY / ANCHOR AD -->
+<div class="ad-sticky" id="adSticky">
+  <div class="ad-sticky-inner">
+    <div class="ad-label" style="margin:0;">Ad</div>
+    <!-- STICKY ANCHOR AD — placeholder: create an "Anchor ad" or responsive display
+         unit in AdSense, then paste its slot ID into ADSENSE.SLOTS.STICKY_ANCHOR above -->
+    <ins class="adsbygoogle ad-placeholder"
+         style="display:block;width:100%;"
+         data-ad-client=""
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"
+         id="ad-sticky-anchor"></ins>
+    <button class="ad-sticky-close" id="adStickyClose" aria-label="Close ad" onclick="closeStickyAd()">✕</button>
+  </div>
+</div>
+
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
   <span>We use cookies to improve your experience and serve relevant ads. See our <a href="/privacy.html" style="color:var(--blue2)">Privacy Policy</a>.</span>
@@ -1508,16 +1567,44 @@ function toggleFaq(el) {
 function acceptCookies() {
   localStorage.setItem('cookies_consent', 'accepted');
   document.getElementById('cookieBanner').classList.add('hidden');
+  showStickyAd();
 }
 
 function rejectCookies() {
   localStorage.setItem('cookies_consent', 'rejected');
   document.getElementById('cookieBanner').classList.add('hidden');
+  showStickyAd();
 }
 
 // Hide banner if a choice was already made
 if (localStorage.getItem('cookies_consent')) {
   document.getElementById('cookieBanner').classList.add('hidden');
+}
+
+// ===== STICKY / ANCHOR AD =====
+function showStickyAd() {
+  if (sessionStorage.getItem('sticky_ad_closed')) return;
+  if (!ADSENSE.SLOTS.STICKY_ANCHOR) return; // no slot ID configured yet
+  const ins = document.getElementById('ad-sticky-anchor');
+  if (!ins.getAttribute('data-ad-client')) {
+    ins.setAttribute('data-ad-client', ADSENSE.PUBLISHER_ID);
+    ins.setAttribute('data-ad-slot', ADSENSE.SLOTS.STICKY_ANCHOR);
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+  }
+  document.getElementById('adSticky').classList.add('visible');
+  document.body.classList.add('has-sticky-ad');
+}
+
+function closeStickyAd() {
+  document.getElementById('adSticky').classList.remove('visible');
+  document.body.classList.remove('has-sticky-ad');
+  sessionStorage.setItem('sticky_ad_closed', '1');
+}
+
+// If consent was already given on a previous visit, show the sticky ad
+// shortly after load instead of waiting on the (now-hidden) cookie banner
+if (localStorage.getItem('cookies_consent')) {
+  setTimeout(showStickyAd, 1500);
 }
 
 // ===== ENTER KEY =====
