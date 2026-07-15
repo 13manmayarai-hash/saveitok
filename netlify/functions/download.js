@@ -60,8 +60,18 @@ exports.handler = async (event) => {
   }
 
   const { url, quality, isAudioOnly } = body;
-  if (!url) {
+  if (!url || typeof url !== 'string') {
     return respond(400, { status: 'error', text: 'Please paste a video URL.' });
+  }
+  if (url.length > 2048) {
+    return respond(400, { status: 'error', text: 'That URL is too long.' });
+  }
+  // Must be a valid http(s) URL
+  try {
+    const u = new URL(url);
+    if (!/^https?:$/.test(u.protocol)) throw new Error('bad');
+  } catch {
+    return respond(400, { status: 'error', text: 'That doesn\'t look like a valid link.' });
   }
 
   // Call ZM API (POST form: { url })
